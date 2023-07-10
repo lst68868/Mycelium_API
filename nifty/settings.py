@@ -90,7 +90,9 @@ WSGI_APPLICATION = 'nifty.wsgi.application'
 import dj_database_url
 
 DATABASES = {
-    'default': dj_database_url.config(default='postgres://user:password@localhost:5432/mydatabase')
+    'default': dj_database_url.config(
+        default='postgres://user1:user1password@localhost:5432/nifty_db'
+    )
 }
 
 
