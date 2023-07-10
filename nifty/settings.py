@@ -77,22 +77,22 @@ WSGI_APPLICATION = 'nifty.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'nifty_db',
-        'USER': 'nifty_admin',
-        'PASSWORD': 'password',
-        'HOST': 'localhost'
-    }
-}
 # DATABASES = {
-#     'default': dj_database_url.config(
-#         # Feel free to alter this value to suit your needs.
-#         default='postgresql://postgres:postgres@localhost:5432/mysite',
-#         conn_health_checks=True
-#     )
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'nifty_db',
+#         'USER': 'nifty_admin',
+#         'PASSWORD': 'password',
+#         'HOST': 'localhost'
+#     }
 # }
+
+import dj_database_url
+
+DATABASES = {
+    'default': dj_database_url.config(default='postgres://user:password@localhost:5432/mydatabase')
+}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
