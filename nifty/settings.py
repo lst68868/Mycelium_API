@@ -91,7 +91,7 @@ import dj_database_url
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgres://user1:user1password@localhost:5432/nifty_db'
+        default='postgres://nifty_admin:password@localhost:5432/nifty_db'
     )
 }
 
