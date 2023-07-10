@@ -76,24 +76,24 @@ WSGI_APPLICATION = 'nifty.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+import dj_database_url
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'nifty_db',
+        'USER': 'nifty_admin',
+        'PASSWORD': 'password',
+        'HOST': 'nft-mint-api-824f9dc02cba.herokuapp.com'
+    }
+}
+
+
 
 # DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'nifty_db',
-#         'USER': 'nifty_admin',
-#         'PASSWORD': 'password',
-#         'HOST': 'localhost'
-#     }
+#     'default': dj_database_url.config(
+#         default='postgres://nifty_admin:password@localhost:5432/nifty_db'
+#     )
 # }
-
-import dj_database_url
-
-DATABASES = {
-    'default': dj_database_url.config(
-        default='postgres://nifty_admin:password@localhost:5432/nifty_db'
-    )
-}
 
 
 # Password validation
