@@ -12,6 +12,13 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
+import django_heroku
+
+import environ  
+# Initialise environment variables
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -77,14 +84,21 @@ WSGI_APPLICATION = 'nifty.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 import dj_database_url
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'nifty_db',
+#         'USER': 'nifty_admin',
+#         'PASSWORD': 'password',
+#         'HOST': 'postgres://hovgzubygblcpe:83477b30fef0273a32a3b39ecf512a4d07f42561d9e7712fd6b2e10ab2954636@ec2-3-208-74-199.compute-1.amazonaws.com:5432/dch34bq1dvdou8'
+#     }
+# }
+
+DATABASE_URL=env('DATABASE_URL')
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'nifty_db',
-        'USER': 'nifty_admin',
-        'PASSWORD': 'password',
-        'HOST': 'nft-mint-api-824f9dc02cba.herokuapp.com'
-    }
+    'default': 
+        dj_database_url.config('DATABASE_URL')
 }
 
 
