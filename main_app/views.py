@@ -20,6 +20,7 @@ class UserViewSet(viewsets.ModelViewSet):
 from django.contrib.auth import authenticate, login
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from django.contrib.auth import logout
 
 class LoginView(APIView):
     def post(self, request):
@@ -31,3 +32,10 @@ class LoginView(APIView):
             return Response({"detail": "Login Successful"})
         else:
             return Response({"detail": "Invalid credentials"})
+        
+
+class LogoutView(APIView):
+    def get(self, request):
+        logout(request)
+        return Response({"detail": "Logout Successful"})
+
