@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-=@nh6mk75o6cfld6nu9805mfyzv*4(m-qy!s9-+uslu8%a+pd$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['nft-mint-api-824f9dc02cba.herokuapp.com']
+ALLOWED_HOSTS = ['nft-mint-api-824f9dc02cba.herokuapp.com', 'localhost', '127.0.0.1']
+
 
 
 # Application definition
