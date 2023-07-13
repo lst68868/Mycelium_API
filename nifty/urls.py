@@ -1,9 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
-from main_app.views import NFTViewSet, UserViewSet
+from main_app.views import NFTViewSet, UserViewSet, CreateUserView, LoginView, LogoutView
 from rest_framework import routers
-from main_app.views import LoginView, LogoutView
-
 
 router = routers.DefaultRouter()
 router.register(r'NFT', NFTViewSet)
@@ -13,6 +11,7 @@ urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
     path('login/', LoginView.as_view(), name='login'),
-    path('logout/', LogoutView.as_view()),
-    path('api-auth/', include('rest_framework.urls'))
+    path('logout/', LogoutView.as_view(), name='logout'),
+    path('create_user/', CreateUserView.as_view(), name='create_user'),
+    path('api-auth/', include('rest_framework.urls')),
 ]
