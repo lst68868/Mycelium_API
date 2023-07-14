@@ -15,7 +15,6 @@ import os
 import dj_database_url
 import django_heroku
 from datetime import timedelta
-import rest_framework_simplejwt
 
 import environ  
 # Initialise environment variables
