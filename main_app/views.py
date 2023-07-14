@@ -24,7 +24,7 @@ class MyTokenObtainPairView(TokenObtainPairView):
     serializer_class = MyTokenObtainPairSerializer
 
 class NFTViewSet(viewsets.ModelViewSet):
-    queryset = NFT.objects.all()
+    queryset = NFT.objects.all().order_by('-date_created')[:10]
     serializer_class = NFTSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     
@@ -75,6 +75,17 @@ class CreateUserView(APIView):
         # Save the Ethereum address in the user's profile
         user.profile.ethereum_address = ethereum_address
         user.profile.save()
-        
 
         return Response({'message': 'User created successfully'}, status=201)
+
+class CreateNFTView(APIView):
+    
+    def post(self, request):
+        print("qwerqwerqwerwer")
+        print(request.data)
+        serializer = NFTSerializer(data=request.data)
+        if serializer.is_valid():
+            print("321")
+            serializer.save()
+            return Response(serializer.data, status=201)
+        return Response(serializer.errors, status=400)
