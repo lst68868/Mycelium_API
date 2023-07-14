@@ -206,9 +206,9 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000',  # Add your React frontend URL here
+    'http://localhost:3000', 'https://spontaneous-strudel-7804ca.netlify.app' # Add your React frontend URL here
 ]
 CORS_ALLOW_HEADERS = [
     'accept',
