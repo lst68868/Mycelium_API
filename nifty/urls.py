@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
-from main_app.views import NFTViewSet, UserViewSet, CreateUserView, LoginView, LogoutView, CreateNFTView
+from main_app.views import NFTViewSet, UserViewSet, CreateUserView, LoginView, LogoutView, CreateNFTView, GetSingleNFTView
 from rest_framework import routers
 
 from rest_framework_simplejwt.views import (
@@ -22,4 +22,5 @@ urlpatterns = [
     path('api/token/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/create-nft/', CreateNFTView.as_view(), name='create_nft'),
+    path('nft/<int:id>/', GetSingleNFTView.as_view(), name='single-nft'),
 ]

@@ -78,6 +78,12 @@ class CreateUserView(APIView):
 
         return Response({'message': 'User created successfully'}, status=201)
 
+class GetSingleNFTView(APIView):
+    def get(self, request, id):
+        nft = NFT.objects.get(pk=id)
+        serializer = NFTSerializer(nft)
+        return Response(serializer.data, status=200)
+
 class CreateNFTView(APIView):
     
     def post(self, request):
