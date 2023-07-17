@@ -10,10 +10,16 @@ class NFT(models.Model):
     image_link = models.CharField(max_length=256)
     owned_by = models.CharField(max_length=256)
     category = models.CharField(max_length=256, default='')
+<<<<<<< HEAD
     views = models.IntegerField(default=0)
     tokenId = models.IntegerField(default=0, unique=True)
     
     def __str__(self):
+=======
+    
+    
+def __str__(self):
+>>>>>>> 6849ff4a699e9e644bf8e3346c32b5bf0c4e5493
         return f'{self.title} by {self.creator} --- owned by {self.owned_by}'
 
 class Profile(models.Model):
@@ -30,4 +36,17 @@ def create_user_profile(sender, instance, created, **kwargs):
 
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
+<<<<<<< HEAD
     instance.profile.save()
+=======
+    instance.profile.save()
+    return f'{self.title} by {self.creator} --- owned by {self.owned_by}'
+    
+    
+#User model is already defined in django.contrib.auth.models
+#But we need to add a field to it
+
+#User model
+
+#ETH_address_linked = models.CharField(max_length=256) #ETH address
+>>>>>>> 6849ff4a699e9e644bf8e3346c32b5bf0c4e5493
