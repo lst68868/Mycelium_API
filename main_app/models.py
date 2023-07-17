@@ -13,8 +13,8 @@ class NFT(models.Model):
     views = models.IntegerField(default=0)
     tokenId = models.IntegerField(default=0, unique=True)
     
-    def __str__(self):
-        return f'{self.title} by {self.creator} --- owned by {self.owned_by}'
+def __str__(self):
+    return f'{self.title} by {self.creator} --- owned by {self.owned_by}'
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -30,7 +30,10 @@ def create_user_profile(sender, instance, created, **kwargs):
 
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
+<<<<<<< HEAD
     instance.profile.save()
+=======
+>>>>>>> 5301c931ae21d76783674ba466cb89b7baa2cc7b
     instance.profile.save()
     return f'{self.title} by {self.creator} --- owned by {self.owned_by}'
     
