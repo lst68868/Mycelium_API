@@ -30,10 +30,6 @@ def create_user_profile(sender, instance, created, **kwargs):
 
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
-<<<<<<< HEAD
-    instance.profile.save()
-=======
->>>>>>> 5301c931ae21d76783674ba466cb89b7baa2cc7b
     instance.profile.save()
     return f'{self.title} by {self.creator} --- owned by {self.owned_by}'
     
