@@ -9,7 +9,7 @@ from rest_framework_simplejwt.views import (
 from main_app.views import MyTokenObtainPairView
 
 router = routers.DefaultRouter()
-router.register(r'NFT', NFTViewSet)
+router.register(r'NFT', NFTViewSet, basename='NFT')
 router.register(r'users', UserViewSet)
 router.register(r'trending', NFTTrendingSet)
 

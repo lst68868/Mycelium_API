@@ -31,7 +31,7 @@ def create_user_profile(sender, instance, created, **kwargs):
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
     instance.profile.save()
-    return f'{self.title} by {self.creator} --- owned by {self.owned_by}'
+    # return f'{self.title} by {self.creator} --- owned by {self.owned_by}'
     
     
 #User model is already defined in django.contrib.auth.models
