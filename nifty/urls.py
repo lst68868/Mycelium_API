@@ -25,5 +25,4 @@ urlpatterns = [
     path('api/create-nft/', CreateNFTView.as_view(), name='create_nft'),
     path('nftinfo/<int:tokenId>/', NFTDetailView.as_view(), name='nft_detail'),
     path('api/profile/', UserProfileAPIView.as_view(), name='user_profile'),
-    
 ]
