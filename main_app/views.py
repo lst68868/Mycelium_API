@@ -25,7 +25,7 @@ class MyTokenObtainPairView(TokenObtainPairView):
     serializer_class = MyTokenObtainPairSerializer
 
 class NFTViewSet(viewsets.ModelViewSet):
-    queryset = NFT.objects.all().order_by('-date_created')[:10]
+    queryset = NFT.objects.all().order_by('-date_created')
     serializer_class = NFTSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     
