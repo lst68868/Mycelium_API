@@ -2,7 +2,6 @@ from django.contrib import admin
 from django.urls import path, include
 from main_app.views import NFTViewSet, UserViewSet, CreateUserView, LoginView, LogoutView, CreateNFTView, NFTDetailView, NFTTrendingSet, UserProfileAPIView
 from rest_framework import routers
-
 from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
